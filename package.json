@@ -1,0 +1,22 @@
+{
+  "name": "phonebook_backend",
+  "version": "1.0.0",
+  "description": "Exercises of part3 in Helsinki fullstack open 2021 course.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/in7l/helsinki-full-stack-open-2021-phonebook-app.git"
+  },
+  "author": "NikolayM",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/in7l/helsinki-full-stack-open-2021-phonebook-app/issues"
+  },
+  "homepage": "https://github.com/in7l/helsinki-full-stack-open-2021-phonebook-app#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
