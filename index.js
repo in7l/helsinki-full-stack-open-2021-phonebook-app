@@ -36,7 +36,13 @@ const generateId = () => {
   const id = getRandomInt(max);
 
   return id;
-}
+};
+
+const findPersonByName = (name) => {
+  const person = persons.find((p) => p.name.toLowerCase() === name.toLowerCase());
+
+  return person;
+};
 
 app.get('/info', (req, res) => {
   const currentDate = new Date();
@@ -60,6 +66,8 @@ app.post('/api/persons', (req, res) => {
     error = 'name missing';
   } else if (!body.number) {
     error = 'number missing';
+  } else if (findPersonByName(body.name)) {
+    error = 'name must be unique';
   }
 
   if (error) {
