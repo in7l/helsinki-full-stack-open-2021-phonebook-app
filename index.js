@@ -29,6 +29,15 @@ app.get('/api/persons', (req, res) => {
   res.json(persons);
 });
 
+app.get('/info', (req, res) => {
+  const currentDate = new Date();
+  const dateString = currentDate.toString();
+
+  res.write(`<p>Phonebook has info for ${persons.length} people</p>`)
+  res.write(`<p>${dateString}</p>`)
+  res.end();
+})
+
 const PORT = 3001;
 app.listen(PORT, () => {
   console.log(`App listening at http://localhost:${PORT}`);
