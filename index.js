@@ -25,10 +25,6 @@ const persons = [
   }
 ];
 
-app.get('/api/persons', (req, res) => {
-  res.json(persons);
-});
-
 app.get('/info', (req, res) => {
   const currentDate = new Date();
   const dateString = currentDate.toString();
@@ -36,7 +32,21 @@ app.get('/info', (req, res) => {
   res.write(`<p>Phonebook has info for ${persons.length} people</p>`)
   res.write(`<p>${dateString}</p>`)
   res.end();
-})
+});
+
+app.get('/api/persons', (req, res) => {
+  res.json(persons);
+});
+
+app.get('/api/persons/:personId', (req, res) => {
+  const personId = Number(req.params.personId);
+  const person = persons.find((p) => p.id === personId);
+  if (!person) {
+    res.status(404).end();
+  } else {
+    res.json(person);
+  }
+});
 
 const PORT = 3001;
 app.listen(PORT, () => {
