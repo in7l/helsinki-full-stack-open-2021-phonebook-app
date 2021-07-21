@@ -59,6 +59,9 @@ const findPersonByName = (name) => {
   return person;
 };
 
+// Serve the static files from the build directory.
+app.use(express.static('build'));
+
 app.get('/info', (req, res) => {
   const currentDate = new Date();
   const dateString = currentDate.toString();
