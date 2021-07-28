@@ -99,17 +99,14 @@ app.post('/api/persons', (req, res) => {
     });
   }
 
-  const id = generateId();
-
-  const person = {
-    id,
+  const person = new Person({
     name: body.name,
     number: body.number
-  };
+  });
 
-  persons = persons.concat(person);
-
-  res.status(201).json(person);
+  person.save().then(savedPerson => {
+    res.status(201).json(savedPerson);
+  });
 });
 
 app.get('/api/persons/:personId', (req, res) => {
